@@ -27,21 +27,26 @@ class TodoViewSet(ModelViewSet):
     # def get_serializer_class(self):
     #     return super().get_serializer_class()
 
+
 # /health/todos/  GET
-todo_list_or_create = TodoViewSet.as_view({
-    "get": "list",
-    "post": "create",
-})
+todo_list_or_create = TodoViewSet.as_view(
+    {
+        "get": "list",
+        "post": "create",
+    }
+)
 # /health/todos/  POST
 # todo_create = TodoViewSet.as_view({"post": "create"})
 
 # /health/todos/{pk}/
-todo_retrieve_or_update_or_delete = TodoViewSet.as_view({
-    "get": "retrieve",
-    "put": "update",
-    "patch": "partial_update",
-    "delete": "destroy",
-})
+todo_retrieve_or_update_or_delete = TodoViewSet.as_view(
+    {
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy",
+    }
+)
 
 # /todos/{pk}/ 주소에 매핑하기
 # todo_detail = TodoViewSet.as_view({"get": "retrieve"})

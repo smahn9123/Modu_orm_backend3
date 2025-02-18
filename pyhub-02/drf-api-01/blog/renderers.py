@@ -4,7 +4,7 @@ from io import BytesIO
 
 from rest_framework.renderers import BaseRenderer, JSONRenderer
 
-import pandas as pd              # pip install pandas openpyxl
+import pandas as pd  # pip install pandas openpyxl
 from wordcloud import WordCloud  # pip install wordcloud
 
 

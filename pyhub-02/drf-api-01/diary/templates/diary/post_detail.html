@@ -16,10 +16,15 @@
 {#    {{ post.comment_set.all }}#}
 {#    {{ comment_list }}#}
 
-    /diary/{{ post.pk }}/comments/
-    {% url "comment-list" post.pk %}
+    <hr />
 
-    <div hx-get="{% url 'comment-list' post.pk %}?format=json"
+    <a hx-get="{% url 'diary:comment-new' post.pk %}"
+       hx-target="#comment-form"
+    >댓글 쓰기</a>
+
+    <div id="comment-form"></div>
+
+    <div hx-get="{% url 'diary:api-v1:comment-list' post.pk %}?format=json"
          hx-trigger="load">
         Loading comments ...
     </div>
@@ -27,7 +32,7 @@
     <div id="comment-list">Now Loading</div>
     <script>
         async function loadCommentList() {
-          const res = await fetch("{% url 'comment-list' post.pk %}?format=json");;
+          const res = await fetch("{% url 'diary:api-v1:comment-list' post.pk %}?format=json");;
           const jsonString = await res.text();  // 페이지 소스보기 했을 때의 응답 내용
           const commentList = JSON.parse(jsonString); // 객체화 (Deserialize)
           console.log(commentList);

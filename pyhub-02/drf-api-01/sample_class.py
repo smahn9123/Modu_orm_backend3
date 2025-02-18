@@ -60,19 +60,31 @@ class View:
             template_name = instance.get_template_name()
             context_data = instance.get_context_data()
             return render(request, template_name, context_data)
+
         return view
+
 
 post_list = View.as_view(model=Post)
 article_list = View.as_view(model=Article)
 
+
 def post_list(request):
     qs = Post.objects.all()
-    return render(request, "blog/post_list.html", {
-        "post_list": qs,
-    })
+    return render(
+        request,
+        "blog/post_list.html",
+        {
+            "post_list": qs,
+        },
+    )
+
 
 def article_list(request):
     qs = Article.objects.all()
-    return render(request, "blog/article_list.html", {
-        "article_list": qs,
-    })
+    return render(
+        request,
+        "blog/article_list.html",
+        {
+            "article_list": qs,
+        },
+    )

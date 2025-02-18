@@ -3,6 +3,7 @@ from django.db import models
 
 # Todo.objects.create(message="...")
 
+
 class Todo(models.Model):
     message = models.CharField(max_length=1000)
     is_completed = models.BooleanField(default=False)

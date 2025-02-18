@@ -51,6 +51,7 @@ class View:
         def view(request):
             instance = cls(**initkwargs)
             return instance.dispatch(request)
+
         return view
 
 

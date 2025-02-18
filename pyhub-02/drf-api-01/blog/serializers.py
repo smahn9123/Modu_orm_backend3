@@ -45,8 +45,7 @@ class PostDetailSerializer(serializers.ModelSerializer):
 
     # comment_list = serializers.StringRelatedField(
     #     many=True, source="comment_set")
-    comment_list = CommentSerializer(
-        many=True, read_only=True, source="comment_set")
+    comment_list = CommentSerializer(many=True, read_only=True, source="comment_set")
 
     @staticmethod
     def get_optimized_queryset():

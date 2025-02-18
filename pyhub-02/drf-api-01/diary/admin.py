@@ -6,6 +6,7 @@ from .models import Post, Comment
 class PostAdmin(admin.ModelAdmin):
     pass
 
+
 # admin.site.register(Post, PostAdmin)
 
 # Model: ModelAdmin = 1 : 1

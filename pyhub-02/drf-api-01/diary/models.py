@@ -8,8 +8,9 @@ class Post(models.Model):
         DELETED = "deleted", "Deleted"
 
     content = models.TextField()
+    photo = models.ImageField(blank=True)  # Pillow 라이브러리 설치가 필요
     status = models.CharField(
-        choices=Status.choices, # 선택지를 제한 !!!
+        choices=Status.choices,  # 선택지를 제한 !!!
         # default="draft",
         default=Status.DRAFT,
         max_length=20,
@@ -20,6 +21,11 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def soft_delete(self):
+        self.content = ""
+        self.status = self.Status.DELETED
+        self.save()
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -29,4 +35,3 @@ class Comment(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-

@@ -7,5 +7,5 @@ urlpatterns = [
     path("melon/", include("melon.urls")),
     path("health/", include("health.urls")),
     path("diary/", include("diary.urls")),
-    path('api-auth/', include('rest_framework.urls'))
+    path("api-auth/", include("rest_framework.urls")),
 ]

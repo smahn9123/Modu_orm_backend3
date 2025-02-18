@@ -132,12 +132,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # django-rest-framework
 REST_FRAMEWORK = {
     # https://www.django-rest-framework.org/api-guide/renderers/
-    'DEFAULT_RENDERER_CLASSES': [
+    "DEFAULT_RENDERER_CLASSES": [
         # 디폴트
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
+        "rest_framework.renderers.JSONRenderer",
+        "rest_framework.renderers.BrowsableAPIRenderer",
         # 추가
-        'blog.renderers.PandasXlsxRenderer',
-        'blog.renderers.WordcloudRenderer',
+        "blog.renderers.PandasXlsxRenderer",
+        "blog.renderers.WordcloudRenderer",
     ]
 }
